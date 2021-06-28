@@ -1,0 +1,27 @@
+<% content_for(:html_title) { 'Dojo Dashboard' } %>
+<h1> Listing <%= @dojos.count %> Dojos </h1>
+<table>
+    <thead>
+        <th> Branch </th>
+        <th> Street </th>
+        <th> City </th>
+        <th> State </th>
+        <th> Actions </th>
+    </thead>
+    <tbody>
+    <%  @dojos.each do |dojo| %>
+        <tr>
+            <td> <%= dojo.branch %> </td>
+            <td> <%= dojo.street %> </td>
+            <td> <%= dojo.city %> </td>
+            <td> <%= dojo.state %> </td>
+            <td> 
+                <a href="dojos/<%= dojo.id %>">Show</a>  | 
+                <a href="dojos/<%= dojo.id %>/edit"> Edit</a>  | 
+                <a href="dojos/<%= dojo.id %>/delete"> Delete </a> 
+            </td>
+        </tr>
+    <%  end %>
+    </tbody>
+</table>
+<a href="dojos/new" id="create_btn"> New Dojo </a>

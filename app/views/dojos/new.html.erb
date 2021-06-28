@@ -1,0 +1,35 @@
+<% content_for(:html_title) { 'Create new Dojo' } %>
+<h1> New Dojo </h1>
+<form id="dojo_form" action="post" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <div class="info"> 
+        <label> Branch: </label> 
+        <input type="text" name="dojo[branch]" placeholder="Enter Branch here."> 
+        <% if flash[:branch] %>
+            <p class="error"><%= flash[:branch] %></p>
+        <% end %>
+    </div>
+    <div class="info"> 
+        <label> Street: </label> 
+        <input type="text" name="dojo[street]" placeholder="Enter Street here."> 
+        <% if flash[:street] %>
+            <p class="error"><%= flash[:street] %></p>
+        <% end %>
+    </div>
+    <div class="info"> 
+        <label> City: </label> 
+        <input type="text" name="dojo[city]" placeholder="Enter City here."> 
+        <% if flash[:city] %>
+            <p class="error"><%= flash[:city] %></p>
+        <% end %>
+    </div>
+    <div class="info"> 
+        <label> State: </label> 
+        <input type="text" name="dojo[state]" placeholder="Enter State here. Ex. CA"> 
+        <% if flash[:state] %>
+            <p class="error"><%= flash[:state] %></p>
+        <% end %>
+    </div>
+    <input type="submit" value="Create Dojo">
+</form>
+<a href="/"> Home <a>

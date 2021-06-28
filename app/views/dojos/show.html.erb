@@ -1,0 +1,5 @@
+<% content_for(:html_title) { "Dojo Dashboard | Dojo #{@dojo.id}" } %>
+<h1> <%= @dojo.branch%> </h1>
+<h3> <label> Street: </label> <%= @dojo.street%> </h3>
+<h3> <label> City: </label> <%= @dojo.city%>  <label> State: </label> <%= @dojo.state%></h3>
+<a href="/">Home<a> | <a href="<%= @dojo.id %>/edit">Edit<a>
