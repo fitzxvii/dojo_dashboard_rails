@@ -1,6 +1,7 @@
-<% content_for(:html_title) { 'Edit Dojo ##{@dojo.id}' } %>
+<% content_for(:html_title) { "Edit Dojo # #{@dojo.id}" } %>
 <h1> Edit Dojo #<%= @dojo.id %> </h1>
 <form id="dojo_form" action="patch" method="post">
+    <input type="hidden" name="_method" value="patch">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <div class="info"> 
         <label> Branch: </label> 
@@ -30,6 +31,6 @@
             <p class="error"><%= flash[:state] %></p>
         <% end %>
     </div>
-    <input type="submit" value="Edit Dojo">
+    <input type="submit" class="submit_btn" value="Edit Dojo">
 </form>
-<a href="/"> Home <a>
+<p class="footer"> <a href="/"> Home <a> </p>

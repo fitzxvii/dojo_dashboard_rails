@@ -1,0 +1,34 @@
+<% content_for(:html_title) { "Create new Student for Dojo #{@dojo.id}" } %>
+<h1> New Student </h1>
+<form id="dojo_form" action="post" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <div class="info"> 
+        <label> First name: </label> 
+        <input type="text" name="student[first_name]" placeholder="Enter your first name here."> 
+        <% if flash[:first_name] %>
+            <p class="error"><%= flash[:first_name] %></p>
+        <% end %>
+    </div>
+    <div class="info"> 
+        <label> Last name: </label> 
+        <input type="text" name="student[last_name]" placeholder="Enter your last name here."> 
+        <% if flash[:last_name] %>
+            <p class="error"><%= flash[:last_name] %></p>
+        <% end %>
+    </div>
+    <div class="info"> 
+        <label> Email address: </label> 
+        <input type="text" name="student[email]" placeholder="Enter your email address here."> 
+        <% if flash[:email] %>
+            <p class="error"><%= flash[:email] %></p>
+        <% end %>
+    </div>
+    <div class="info"> 
+        <label> Dojo: </label> 
+        <select name="student[dojo_id]">
+            <option value="<%= @dojo.id %>" selected="selected"> <%= @dojo.branch %> </option>
+        </select>
+    </div>
+    <input type="submit" class="submit_btn" value="Create Student">
+</form>
+<p class="footer"> <a href="/"> Home <a> </p>

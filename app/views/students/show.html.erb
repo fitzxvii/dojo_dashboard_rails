@@ -1,0 +1,21 @@
+<% content_for(:html_title) { "#{@this_student.first_name} #{@this_student.last_name}" } %>
+<h1> <%= "#{@dojo.branch}'s #{@this_student.first_name} #{@this_student.last_name}"%> </h1>
+<h3> Email Address: <%= "#{@this_student.email}" %> </h3>
+<h3> Cohort </h3>
+<table>
+    <thead>
+        <th> First Name </th>
+        <th> Last Name </th>
+        <th> Email Address </th>
+    </thead>
+    <tbody>
+        <%  @cohort.each do |student| %>
+            <tr>
+                <td> <%= student.first_name %> </td>
+                <td> <%= student.last_name %> </td>
+                <td> <%= student.email %> </td>
+            </tr>
+        <%  end %>
+    </tbody>
+</table>
+<p class="footer"> <a href="/">Home<a> | <a href="/dojos/<%= @dojo.id %>/students/<%= @this_student.id %>/edit">Edit<a> </p>

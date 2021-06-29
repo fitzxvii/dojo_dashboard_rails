@@ -1,0 +1,40 @@
+<% content_for(:html_title) { "Edit Student # #{@this_student.id}" } %>
+<h1> Edit Student </h1>
+<form id="dojo_form" action="patch" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <div class="info"> 
+        <label> First name: </label> 
+        <input type="text" name="student[first_name]" value="<%= @this_student.first_name %>"> 
+        <% if flash[:first_name] %>
+            <p class="error"><%= flash[:first_name] %></p>
+        <% end %>
+    </div>
+    <div class="info"> 
+        <label> Last name: </label> 
+        <input type="text" name="student[last_name]" value="<%= @this_student.last_name %>"> 
+        <% if flash[:last_name] %>
+            <p class="error"><%= flash[:last_name] %></p>
+        <% end %>
+    </div>
+    <div class="info"> 
+        <label> Email address: </label> 
+        <input type="text" name="student[email]" value="<%= @this_student.email %>"> 
+        <% if flash[:email] %>
+            <p class="error"><%= flash[:email] %></p>
+        <% end %>
+    </div>
+    <div class="info"> 
+        <label> Dojo: </label> 
+        <select name="student[dojo_id]">
+            <option value="<%= @dojo.id %>" selected="selected"> <%= @dojo.branch %> </option>
+            <%  @dojos.each do |dojo| %>
+                <% if dojo.id != @dojo.id %>
+                    <option value="<%= dojo.id %>" > <%= dojo.branch %> </option>
+                <% end %>
+            <% end %>
+        </select>
+    </div>
+    <input type="submit" class="submit_btn" value="Edit Student">
+</form>
+<p class="footer"> <a href="/"> Home <a> </p>
